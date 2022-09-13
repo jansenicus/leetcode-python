@@ -18,7 +18,7 @@ class Solution:
         while left < right:
 			
         	maxArea = max(maxArea, 
-						  min( height[left], height[right] ) * ( right - left ))
+			      min( height[left], height[right] ) * ( right - left ))
         	
 			if height[left] < height[right]:	
         		left += 1
