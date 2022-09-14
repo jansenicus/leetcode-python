@@ -25,12 +25,12 @@ class Solution:
         
         num = 0
         
-        for k,v in roman2.items():
-            if k in s:
-                num += v
-                s = s.replace(k,'')
+        for k,v in roman2.items():                      # check roman2 table
+            if k in s:                                  # if element exists in table
+                num += v                                # accumulate the value
+                s = s.replace(k,'')                     # remove the character
 
-        for e in s:
-            num += roman1[e]
+        for e in s:                                     # for each remaining character
+            num += roman1[e]                            # translate and accumulate its value
 
         return num
