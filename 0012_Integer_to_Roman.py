@@ -23,9 +23,9 @@ class Solution:
           "I"   : 1,
         }
         
-        for sym, val in table.items():
-          d, m = divmod(num, val)
-          roman += sym * d
-          num = m
+        for symbol, value in table.items():
+          d, carry = divmod(num, value)
+          roman += symbol * d
+          num = carry
         
         return roman
