@@ -18,7 +18,7 @@ class Solution:
 		
         nums.sort()											# sort the nums
         
-        near = float('inf')                            		# `closest` begins with `far`
+        near = float('inf')                            		# `closest` begins with `far` infinity
 
         L = 0												# the beginning, the leftmost
         R = len(nums) - 1									# the end, the rightmost					
