@@ -21,7 +21,7 @@ class Solution:
       strs[i] consists of only lowercase English letters.
       """
         
-        prefix = strs[0] if len(strs) else ""				# initialize `prefix` equals to the first `strs`
+        prefix = strs[0] if len(strs) else ""			# initialize `prefix` equals to the first `strs`
         
         for i, word in enumerate(strs, 1):              	# enumerate `strs` from index 1
             
