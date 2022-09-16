@@ -21,22 +21,21 @@ class Solution:
       strs[i] consists of only lowercase English letters.
       """
         
-        prefix = strs[0] if len(strs) else ""                   # initialize `prefix` equals to the first `strs`
+        prefix = strs[0] if len(strs) else ""				# initialize `prefix` equals to the first `strs`
         
-        for i in range(1, len(strs)):
+        for i, word in enumerate(strs, 1):              	# enumerate `strs` from index 1
             
-            char = ""                                           # initialize empty character
-            word = strs[i]                                      # `word` equals current string
-            
-            if len(prefix) == 0:
-                break
+            maxlen = len(prefix)                        	# `maxlen` to be the len of previous prefix
+            if maxlen == 0: break                       	# break from loop when `maxlen` is zero
+				
+            _ = ""                                      	# `_` temporary placeholder for prefix
                 
-            for j in range(0, len(word)):                       # loop in the current `word`
-                if j < len(prefix) and prefix[j] == word[j] :   # selection criteria 
-                    char += prefix[j]                           # add `char` into prefix
-                else:
-                   break
+            for j, e in enumerate(word):                	# loop for each element `e` in `word`
                 
-            prefix = char
+                if j < maxlen and e == prefix[j]:       	# if current element `e` equals previous prefix
+                    _ += e                              	# add current element `e` into `_`
+                else: break
+                    
+            prefix = _
             
         return prefix
