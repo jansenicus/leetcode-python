@@ -20,8 +20,8 @@ class Solution:
         
         near = float('inf')                            		# `closest` begins with `far`
 
-        L = 0												# the beginning
-        R = len(nums) - 1									# the end										
+        L = 0												# the beginning, the leftmost
+        R = len(nums) - 1									# the end, the rightmost					
         
         while L < R:
             
