@@ -16,9 +16,9 @@ class Solution:
 		The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 		"""
 		
-        nums.sort()											# sort the nums
+		nums.sort()											# sort the nums
         
-        near = float('inf')                            		# `closest` begins with `far` infinity
+        near = float('inf')                            		# `closest` begins with `far`
 
         L = 0												# the beginning, the leftmost
         R = len(nums) - 1									# the end, the rightmost					
