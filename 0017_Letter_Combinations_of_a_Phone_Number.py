@@ -20,6 +20,9 @@ class Solution(object):
 
 		Input: digits = "2"
 		Output: ["a","b","c"]
+		
+		LC Runtime: 21 ms, faster than 78.46% of Python online submissions for Letter Combinations of a Phone Number.
+		LC Memory Usage: 13.4 MB, less than 88.03% of Python online submissions for Letter Combinations of a Phone Number.
         """
         
         if(len(digits) == 0):
