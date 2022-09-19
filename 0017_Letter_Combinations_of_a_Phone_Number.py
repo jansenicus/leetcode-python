@@ -44,7 +44,8 @@ class Solution(object):
 
             for letter in phonebuttonmap[d]:
 
-                _ =  _ + [char+letter for char in chars]
+            	for char in chars:
+            		_.append(char+letter)
 
             chars = _
 
