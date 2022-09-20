@@ -5,36 +5,42 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
-        result = []
+        quadruplets = []
         nums.sort()
 		
-        for i in range(len(nums) - 3):
+        for i in range(len(nums) - 3):												# last index on len(nums)-3
 			
-            if i >0 and nums[i]== nums[i-1]:
+            if i > 0 and nums[i] == nums[i-1]:										# skip if current number equals previous number
                 continue
 				
-            for j in range(i+1,len(nums)-2):
+            for j in range(i+1, len(nums)-2):										# next number loop begins with i+1 to len(nums)-2
 				
-                l, r = j+1, len(nums)-1
+                l, r = j + 1, len(nums) - 1											# two pointers l and r, begins with j+1 to len(nums)-1
 				
-                while l<r:
+                while l < r:														# while l < r then keep looping
 					
-                    a = nums[i] +nums[j] +nums[l] +nums[r]
+					quadruplet = [ nums[i], nums[j], nums[l], nums[r] ]				# quadruplet
 					
-                    if a < target:
-                        l+=1
+                    Sum = sum(quadruplet)											# Sum of quadruplet
+					
+                    if Sum < target:												# if Sum less than target then increase the `l` index
+                        l += 1
 						
-                    elif a>target:
-                        r-=1
+                    elif Sum > target:												# if Sum greater than target then decrease the `r` index
+                        r -= 1
 						
                     else:
-                        result.append((nums[i], nums[j], nums[l], nums[r]))
-                        l+=1
-                        while nums[l] == nums[l-1] and l < r :
-                            l+=1
-        quadruplets = []
+                        quadruplets.append( quadruplet )			
+                        l += 1
+						
+                        while nums[l] == nums[l-1] and l < r :						# keep skipping if current number equals previous number
+                            l += 1													# increase `l` index
+							
+        Quadruplets = []															# Unique Quadruplets
 		
-        for b in list(set(result)):
-            quadruplets.append(list(b))
+        for quadruplet in list(set(quadruplets)):					
+            Quadruplets.append(list(quadruplet))
 			
-        return quadruplets
+		Quadruplets = list(set(quadruplets)
+			
+        return Quadruplets
