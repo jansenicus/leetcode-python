@@ -60,7 +60,7 @@ class Solution(object):
             mutual[pa][0] += 1  # person_a trusting person_b stored as [0] component
             mutual[pb][1] += 1  # person_b trusted by person_a stored as [0] component
 
-        for k, v in lookup.items():
+        for k, v in mutual.items():
 
             if v == [0, n - 1]:
                 judge = k
