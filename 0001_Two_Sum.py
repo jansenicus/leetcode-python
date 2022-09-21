@@ -5,14 +5,14 @@ class Solution:
         You may assume that each input would have exactly one solution, and you may not use the same element twice.
         You can return the answer in any order.
         """
-        indices = {}                                  # let indices = {number: index}
+        nixmap = {}                                  # let nixmap = {number: index}
         
-        for i in range(0, len(nums)):                 
+        for idx, num in enumerate(nums):
         
-            complement = target - nums[i]             # complementary number adds up to the target
+            complementary = target - num                # complementary number adds up to the target
                                                       
-            if complement in indices:                 # if complementary number exists then return the indices       
-                return [i, indices[complement]]
+            if complementary in nixmap:                 # if complementary number exists then return the indices
+                return [idx, nixmap[complementary]]
               
-            indices[nums[i]] = i                      # register number into indices
+            nixmap[num] = idx                           # register number into indices
         
