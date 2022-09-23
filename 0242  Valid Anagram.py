@@ -1,9 +1,7 @@
 class Solution(object):
     def isAnagram(self, s, t):
         """
-        :type s: str
-        :type t: str
-        :rtype: bool
+        https://leetcode.com/problems/valid-anagram/
 
         Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
@@ -30,20 +28,20 @@ class Solution(object):
         Memory Usage: 13.8 MB, less than 89.78% of Python online submissions for Valid Anagram.
         """
 
-        enums, enumt = {}, {}
+        enum_s, enum_t = {}, {}
 
         for e in s:
 
-            if e in enums:
-                enums[e] += 1
+            if e in enum_s:
+                enum_s[e] += 1
             else:
-                enums[e] = 1
+                enum_s[e] = 1
 
         for e in t:
 
-            if e in enumt:
-                enumt[e] += 1
+            if e in enum_t:
+                enum_t[e] += 1
             else:
-                enumt[e] = 1
+                enum_t[e] = 1
 
-        return enums == enumt
+        return enum_s == enum_t

@@ -1,17 +1,16 @@
 class Solution(object):
     def generateParenthesis(self, n):
         """
-        :type n: int
-        :rtype: List[str]
+
+        https://leetcode.com/problems/generate-parentheses/
 
         Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
         Example 1:
-
         Input: n = 3
         Output: ["((()))","(()())","(())()","()(())","()()()"]
-        Example 2:
 
+        Example 2:
         Input: n = 1
         Output: ["()"]
 
@@ -20,25 +19,20 @@ class Solution(object):
         1 <= n <= 8
         """
 
-        ans = []
+        parentheses = []                    # placeholder for all valid parentheses
 
-        def gen(left, right, s):
+        def gen(l, r, s):                   # recursive function to generate parentheses
 
-            if left == right == n:                  # stop when left = right = n
-                ans.append(s)                       # `s` is the answer
-                return
+            if l == r == n:                 # stop when left = right = n
+                parentheses.append(s)       # `s` is the answer
 
-            if left < n:                            # if left < n
-                gen(left + 1,                       # increase left
-                    right,                          #
-                    s + "(")                        # add left opening "("
+            if l < n:                       # if left < n
+                gen(l + 1, r, s + "(")      # add left opening "("
 
-            if right < left:                        # if right < left
-                gen(left,                           #
-                    right + 1,                      # increase right
-                    s + ")")                        # add right closing ")"
+            if r < l:                       # if right < left
+                gen(l, r + 1, s + ")")      # add right closing ")"
 
 
         gen(0, 0, '')
 
-        return ans
+        return parentheses

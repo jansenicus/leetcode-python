@@ -1,60 +1,75 @@
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         """
-		Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target.
 
-		Return the sum of the three integers.
+        https://leetcode.com/problems/3sum-closest/
 
-		You may assume that each input would have exactly one solution.
+        Given an integer array nums of length n and an integer target,
+        find three integers in nums such that the sum is closest to target.
 
-		Example 1:
-		
-		Input: nums = [-1,2,1,-4], target = 1
-		Output: 2
-		
-		Explanation:
-		The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
-		"""
-		
-		nums.sort()											# sort the nums
+        Return the sum of the three integers.
+        You may assume that each input would have exactly one solution.
+
+        Example 1:
+        Input: nums = [-1,2,1,-4], target = 1
+        Output: 2
+
+        Explanation:
+        The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+
+        Example 2:
+        Input: nums = [0,0,0], target = 1
+        Output: 0
+
+
+        Constraints:
+        3 <= nums.length <= 1000
+        -1000 <= nums[i] <= 1000
+        -104 <= target <= 104
+
+        """
+
+        nums.sort()											    # sort the nums
         
-        near = float('inf')									# `closest` begins with `far` infinity
+        closest = float('inf')                                  # `closest` begins from infinity away
 
-        L = 0												# the beginning, the leftmost
-        R = len(nums) - 1									# the end, the rightmost					
+        alpha = 0                                               # the beginning
+        omega = len(nums) - 1									# the end
         
-        while L < R:
+        while alpha < omega:
             
-            far = float('inf')                            	# `far` away 
+            _closest = float('inf')                             # current `_closest`
 
-            l = L + 1										# `l` left pointer				
-            r = R - 1										# `r` right pointer
+            l = alpha + 1										# `l` left pointer
+            r = omega - 1										# `r` right pointer
             
-            while l <= r:									# while `l` < `r`
+            while l <= r:                                       # while `l` < `r`
                 
-                m = (l+r) // 2                              # find middle `m`
-                triple = nums[L] + nums[R] + nums[m]        # get the `triple` sum
-                diff = triple - target                      # calculate difference between `triple` and `target`
-                
-                if diff == 0: return target                 # if `diff` = `0` just return `target`
+                m = (l+r) // 2                                  # find middle `m`
+                triumph = nums[alpha] + nums[omega] + nums[m]   # get the `triplet_sum`
 
-                if diff > 0:                                # if `diff` > 0
-                    r = m-1                                 # decrease the sum by moving `r` towards the left
-                else:										# if `diff` < 0
-                    l = m+1                                 # increase the sum by moving `l` towards the right
+                if triumph < target:                            # if `triumph` < `target`
+                    l = m+1                                     # move `l` forward from `m`
+
+                elif triumph > target:						    # if `triumph` > `target`
+                    r = m-1                                     # move `r` backward from `m`
+
+                else:                                           # otherwise `triumph` == `target`
+                    return target                               # we got the target
                     
-                if abs(diff) < abs(far-target):             # if `diff` is less than the distance `far` to `target` 
-                    far = triple                            # update `far` to `triple`
+                if abs(triumph-target) < abs(_closest-target):  # if `triumph` is closer than current closest
+                    _closest = triumph                          # update current `_closest` to `triumph`
                     
-            if (far-target) > 0 :                           # if difference of `far` to `target` is positive 
-                R -= 1                                      # decrease the sum by decreasing `R`
-            else:											# if difference of `far` to `target` is negative 
-                L += 1                                      # increase the sum by increasing `L`
+            if _closest < target:                               # if current_closest`<`target`
+                alpha += 1                                      # increase `alpha`
+
+            else:											    # otherwise
+                omega -= 1                                      # decrease `omega`
                 
-            if abs(far-target) < abs(near-target):          # check distance from `near` and `far` to `target` 
-                    near = far                              # update `near` to far
+            if abs(_closest-target) < abs(closest-target):      # if _closest is closer than closest
+                closest = _closest                              # update `closest` to current `_closest`
                 
-        return near
+        return closest
             
             
             

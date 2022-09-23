@@ -1,7 +1,7 @@
 class Solution(object):
     def findJudge(self, n, trust):
         """
-        :type n: int :type trust: List[List[int]] :rtype: int
+        https://leetcode.com/problems/find-the-town-judge/
 
         In a town, there are n people labeled from 1 to n.
         There is a rumor that one of these people is secretly the town judge.
@@ -52,17 +52,16 @@ class Solution(object):
 
         if len(trust) < n - 1: return -1
 
-        judge = -1
+        trusting, trusted = 0, 0
+        confidence = {person: [trusting, trusted] for person in range(1, n + 1)}
 
-        mutual = {i: [0, 0] for i in range(1, n + 1)}
+        for giver, earner in trust:
+            confidence[giver][0] += 1  # trusting degree of the giver
+            confidence[earner][1] += 1  # trusted degree of the earner
 
-        for pa, pb in trust:
-            mutual[pa][0] += 1  # person_a trusting person_b stored as [0] component
-            mutual[pb][1] += 1  # person_b trusted by person_a stored as [0] component
+        for person, [trusting, trusted] in confidence.items():
 
-        for k, v in mutual.items():
+            if [trusting, trusted] == [0, n - 1]:
+                return person
 
-            if v == [0, n - 1]:
-                judge = k
-
-        return judge
+        return -1

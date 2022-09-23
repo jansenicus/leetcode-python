@@ -1,7 +1,6 @@
 class Solution:
         """
-        @param: strs: a list of strings
-        @return: encodes a list of strings to a single string.
+        https://leetcode.com/problems/encode-and-decode-strings/
         """
 
         def encode(self, strs):
