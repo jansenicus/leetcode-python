@@ -42,14 +42,6 @@ class Solution(object):
         https://www.youtube.com/watch?v=OVdeIkc6Zmk
         """
 
-        # d is a function such that: i -> [out-degree, in-degree] i: person's label element [1,3] of trust can be
-        # translated into   i) 1's out-degree increased by 1, ii) 3's in-degree increased by 1 a judge needs to have
-        # 0 out-degree and n-1 in-degree and a judge is only one person
-
-        # example)
-        # trust = [[1,3],[2,3],[3,1]], n = 3
-        # d = {1:[1,1], 2:[1,0], 3:[1,2]} => no [0,3] in d => no judge exist
-
         if len(trust) < n - 1: return -1
 
         trusting, trusted = 0, 0

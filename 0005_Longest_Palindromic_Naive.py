@@ -1,6 +1,8 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
       """
+      https://leetcode.com/problems/longest-palindromic-substring/
+
       This is my naive bruteforce of Longest Palindromic Substring algorithm
       Where we check all possible combinations of substrings from a given string
       

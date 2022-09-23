@@ -1,6 +1,8 @@
 class Solution:
     def longestPalindrome(self, S: str) -> str:
         """
+        https://leetcode.com/problems/longest-palindromic-substring/
+
         Manacher's Algorithm Implementation in Python
         O(n) algorithm to find longest palindrome substring
 
