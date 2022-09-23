@@ -43,7 +43,7 @@ class Solution:
             x = q                                               # update `x` equals to `q`
             rev = rev * 10 + r                                  # update `rev` times ten + `r: remainder`
 
-            if not lower_limit <= sgn*rev <= upper_limit:      # for value outside limit
+            if not lower_limit <= sgn*rev <= upper_limit:       # for value outside limit
                 return 0                                        # return 0
             
-        return sgn*rev                                         # final value of reverse int x
+        return sgn*rev                                          # final value of reverse int x
