@@ -1,7 +1,10 @@
 # leetcode-python
-Solution to LeetCode Problems in Python
+This repository contains Python solution to LeetCode Problems.
+To improve understanding on the solution, the code includes:
 
-Improve understanding on the solution
-## problem statement in docstring
-## inline comment to clarify steps
-## explicit variable names
+#### original leetcode url
+#### original problem statement
+#### video url (if any) 
+#### code solution
+#### explicit variables
+#### inline comments
