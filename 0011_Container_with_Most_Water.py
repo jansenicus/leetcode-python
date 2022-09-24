@@ -31,19 +31,18 @@ class Solution:
         Memory Usage: 27.4 MB, less than 45.04% of Python3 online submissions for Container With Most Water.
 
         """
-    
-        l, r = 0, len(height) - 1               # two pointers `l` and `r`
+
         area = 0                                # initialize area
+        l, r = 0, len(height) - 1               # two pointers `l` and `r`
+        hi = lambda i: height[i]                # lambda function that returns: height[i]
 
         while l < r:
 
-            hl = height[l]                      # `hl`
-            hr = height[r]                      # `hr`
-            h = min(hl, hr)                     # choose the lowest between `hl` and `hr`
+            h = min(hi(l) , hi(r))              # choose the lowest between `hi(l)` and `hi(r)`
 
             area = max(area, h * (r-l))         # store the max area
             
-            if hl < hr:                         # if hl < hr then
+            if hi(l) < hi(r):                   # if hi(l) < hi(r) then
                 l += 1                          # increase `l`
             else:                               # otherwise
                 r -= 1                          # decrease `r`
