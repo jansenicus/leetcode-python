@@ -1,7 +1,6 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         """
-
         https://leetcode.com/problems/container-with-most-water/
 
         You are given an integer array height of length n.
@@ -13,7 +12,6 @@ class Solution:
         Example 1:
         Input: height = [1,8,6,2,5,4,8,3,7]
         Output: 49
-
         Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7].
         In this case, the max area of water (blue section) the container can contain is 49.
 
@@ -30,6 +28,7 @@ class Solution:
         Runtime: 809 ms, faster than 88.57% of Python3 online submissions for Container With Most Water.
         Memory Usage: 27.4 MB, less than 45.04% of Python3 online submissions for Container With Most Water.
 
+        https://youtu.be/UuiTKBwPgAo
         """
 
         area = 0                                # initialize area

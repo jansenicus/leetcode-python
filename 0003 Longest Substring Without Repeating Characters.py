@@ -35,6 +35,7 @@ class Solution(object):
         Runtime: 55 ms, faster than 98.09% of Python3 online submissions for Longest Substring Without Repeating Characters.
         Memory Usage: 14 MB, less than 49.67% of Python3 online submissions for Longest Substring Without Repeating Characters.
 
+        https://youtu.be/wiGpQwVHdE0
         """
         
         latest_id = {}                          # let `latest_idx` be the mapping of {element: latest index}

@@ -7,25 +7,22 @@ class Solution(object):
 
         An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
-
         Example 1:
-
         Input: s = "anagram", t = "nagaram"
         Output: true
-        Example 2:
 
+        Example 2:
         Input: s = "rat", t = "car"
         Output: false
 
-
         Constraints:
-
         1 <= s.length, t.length <= 5 * 104
         s and t consist of lowercase English letters.
 
-
         Runtime: 41 ms, faster than 90.51% of Python online submissions for Valid Anagram.
         Memory Usage: 13.8 MB, less than 89.78% of Python online submissions for Valid Anagram.
+
+        https://youtu.be/9UtInBqnCgA
         """
 
         enum_s, enum_t = {}, {}
