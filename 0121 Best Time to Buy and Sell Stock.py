@@ -28,12 +28,12 @@ class Solution:
         """
 
         profit = 0
-        l, r = 0, 1                                 # initialize two consecutive pointers
+        l = 0                                       # initialize low price pointer
 
-        for r in range(1, len(prices)):             # for all consecutive prices
+        for h in range(1, len(prices)):             # for all consecutive pointer
 
-            delta = prices[r] - prices[l]           # delta is the price change
-            l = r if delta < 0 else l               # update `l` only if price decrease
-            profit = max(profit, delta)             # keep the maximum profit
+            change = prices[h] - prices[l]          # price change
+            l = l if change > 0 else h              # keep `l` if change is positive
+            profit = max(profit, change)            # keep the maximum profit
 
         return profit
