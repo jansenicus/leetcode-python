@@ -6,10 +6,12 @@ class ListNode:
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         """
-
         https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+        https://youtu.be/XVuQxVej6y8
+        https://www.youtube.com/watch?v=W4GHixVXNao&ab_channel=thecodingworld
 
-        Given the head of a linked list, remove the nth node from the end of the list and return its head.
+        Given the head of a linked list,
+        remove the nth node from the end of the list and return its head.
 
         Example 1:
         Input: head = [1,2,3,4,5], n = 2
@@ -23,15 +25,11 @@ class Solution:
         Input: head = [1,2], n = 1
         Output: [1]
 
-
         Constraints:
-
         The number of nodes in the list is sz.
         1 <= sz <= 30
         0 <= Node.val <= 100
         1 <= n <= sz
-
-        https://www.youtube.com/watch?v=W4GHixVXNao&ab_channel=thecodingworld
         """
 
         front = rear = head                 # starting from the `head`

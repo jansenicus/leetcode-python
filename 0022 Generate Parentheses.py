@@ -1,10 +1,11 @@
 class Solution(object):
     def generateParenthesis(self, n):
         """
-
         https://leetcode.com/problems/generate-parentheses/
+        https://youtu.be/s9fokUqJ76A
 
-        Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+        Given n pairs of parentheses,
+        write a function to generate all combinations of well-formed parentheses.
 
         Example 1:
         Input: n = 3
