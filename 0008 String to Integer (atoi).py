@@ -73,23 +73,24 @@ class Solution:
         Memory Usage: 13.9 MB, less than 78.65% of Python3 online submissions for String to Integer (atoi).
 
         """
+        from re import match            # regular expression match
         s = s.strip()                   # strip any leading and trailing spaces
 
         pattern = r'[-+]?\d+'           # regex pattern for [-+]*\d+
-        s = re.match(pattern, s)        # match the regex pattern
+        s = match(pattern, s)           # match the regex pattern
 
         if s:                           # if there is a match
             s = s.group()               # get string from the match object
-            num = int(s)                # define `num` as `int`
+            num = int(s)                # convert string `s` into `int` and save as `num`
 
-            if num > 2147483647:        # if num > maxint return maxint
+            if num > 2147483647:        # if `num` > maxint return maxint
                 return 2147483647       # precomputed 2**31
 
-            elif num < -2147483648:     # if num < minint return minint
+            elif num < -2147483648:     # if `num` < minint return minint
                 return -2147483648      # precomputed -2**31
 
             else:                       # if `num` between min-maxint range
                 return num              # return `num` as is
 
         else:                           # if there is no match object
-            return 0                    # return
+            return 0                    # return zero
