@@ -20,65 +20,55 @@ class Solution:
         1 <= s1.length, s2.length <= 104
         s1 and s2 consist of lowercase English letters.
         """
-        # comparing counter of the slice with reference
         #
-        # from collections import Counter
-        # reference = Counter(s1)
+        # this solution requires matches == 26
+        # to confirm that a permutation of s1 exists in string s2
         #
-        # if len(s2) < len(s1):
-        #     return False
-        #
-        # if s1 == s2:
-        #     return True
-        #
-        # for i in range(0, len(s2) - 1):
-        #
-        #     slice = s2[i: i + len(s1)]
-        #
-        #     if Counter(slice) == reference:
-        #         return True
-        #
-        # return False
 
         if len(s2) < len(s1):
             return False
         if s1 == s2:
             return True
 
-        ref, counter = [0] * 26, [0] * 26                       # initialize 26 elements at value 0
-        matches = 0                                             # init matches at value 0
-        at_index = lambda l: ord(l) - ord('a')                  # `at_index` return 0-26
+        freq1, freq2 = [0] * 26, [0] * 26                   # initialize 26 elements at value 0
+        matches = 0                                         # init matches at value 0
 
-        for _ in range(0, len(s1)):                             # populate `ref` and `counter`
-            ref[ at_index( s1[_]) ] += 1                        # populate `ref`
-            counter[ at_index( s2[_] ) ] += 1                   # count element and update `counter`
+        def at_index(x):                                    # `at_index` will return 0-25 for ASCII character `a-z`
+            return ord(x) - ord('a')
+
+        for _ in range(0, len(s1)):                         # loop in the length of `s1`
+            freq1[at_index(s1[_])] += 1                     # once initialized `freq1` will be constant
+            freq2[at_index(s2[_])] += 1                     # while `freq2` will be changing along the sliding window
 
         for _ in range(0, 26):
-            matches += 1 if counter[_] == ref[_] else 0         # populate `matches`
+            matches += 1 if freq2[_] == freq1[_] else 0     # initialize `matches`
 
         l = 0
 
         for r in range(len(s1), len(s2)):
-            if matches == 26:
+            if matches == 26:                               # if `matches` == 26 then we have got a match
                 return True
 
-            _ = at_index(s2[r])                                 # element to check for new match
+            _ = at_index(s2[r])                             # check element at `r` pointer
 
-            counter[_] += 1                                     # increase `counter`
-            if counter[_] == ref[_]:
-                matches += 1                                    # increase `matches`
+            freq2[_] += 1                                   # increase `freq2` for incoming element
 
-            elif counter[_] == ref[_] + 1:
-                matches -= 1                                    # reduce `matches`
+            if freq2[_] == freq1[_]:                        # if current element frequency matches
+                matches += 1                                # `matches` += 1
 
-            _ = at_index(s2[l])                                 # element to check for match
+            elif freq2[_] == freq1[_] + 1:                  # if the frequency mismatches
+                matches -= 1                                # reduce `matches`
 
-            counter[_] -= 1                                     # reduce `counter`
-            if counter[_] == ref[_]:
-                matches += 1                                    # increase `matches`
+            _ = at_index(s2[l])                             # check element at `l` pointer
 
-            elif counter[_] == ref[_] - 1:                      #
-                matches -= 1                                    # reduce `matches`
+            freq2[_] -= 1                                   # reduce `freq` for outgoing element
 
-            l += 1
-        return matches == 26
+            if freq2[_] == freq1[_]:                        # if current element frequency matches
+                matches += 1                                # increase `matches`
+
+            elif freq2[_] == freq1[_] - 1:                  # if the frequency mismatch
+                matches -= 1                                # reduce `matches`
+
+            l += 1                                          # increase `left` pointer
+
+        return matches == 26                                # True if `matches` == 26

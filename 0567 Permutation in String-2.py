@@ -20,8 +20,11 @@ class Solution:
         1 <= s1.length, s2.length <= 104
         s1 and s2 consist of lowercase English letters.
         """
-        # comparing counter of the sliding window with reference
         #
+        # this solution is the easiest to understand
+        # it requires match between Counter and reference
+        # to confirm that a permutation of s1 exists in string s2
+
         from collections import Counter
         reference = Counter(s1)                     # counter of every element in s1
 
