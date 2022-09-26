@@ -1,27 +1,23 @@
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         """
-
         https://leetcode.com/problems/regular-expression-matching/
 
-        Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+        Given an input string s and a pattern p,
+        implement regular expression matching with support for '.' and '*' where:
 
         '.' Matches any single character.​​​​
         '*' Matches zero or more of the preceding element.
         The matching should cover the entire input string (not partial).
 
-
-
         Example 1:
         Input: s = "aa", p = "a"
         Output: false
-
         Explanation: "a" does not match the entire string "aa".
 
         Example 2:
         Input: s = "aa", p = "a*"
         Output: true
-
         Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
 
         Example 3:
@@ -29,9 +25,7 @@ class Solution:
         Output: true
         Explanation: ".*" means "zero or more (*) of any character (.)".
 
-
         Constraints:
-
         1 <= s.length <= 20
         1 <= p.length <= 30
         s contains only lowercase English letters.
@@ -41,7 +35,6 @@ class Solution:
         Submission Details:
         Runtime: 60 ms, faster than 80.20% of Python3 online submissions for Regular Expression Matching.
         Memory Usage: 13.9 MB, less than 90.82% of Python3 online submissions for Regular Expression Matching.
-
         """
         from re import compile
         return compile(rf"{p}").fullmatch(s)
