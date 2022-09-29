@@ -33,6 +33,7 @@ class Solution:
         -100 <= Node.val <= 100
         Both list1 and list2 are sorted in non-decreasing order.
         """
+
         prev = dummy = ListNode(None)
 
         while list1 and list2:

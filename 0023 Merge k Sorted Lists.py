@@ -40,6 +40,7 @@ class Solution:
         lists[i] is sorted in ascending order.
         The sum of lists[i].length will not exceed 104.
         """
+
         import heapq
 
         prev = dummy = ListNode(None)
