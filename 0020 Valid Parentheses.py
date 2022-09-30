@@ -15,8 +15,8 @@ class Solution:
 
         """
 
-        if len(s) % 2:
-            return False
+        if len(s) % 2:                              # if the length is odd
+            return False                            # the string `s`` must be invalid
 
         pair = {                                    # pair = {open: close}
             '(': ')',                               # opening and closing pairs of parentheses
