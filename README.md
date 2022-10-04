@@ -1,5 +1,5 @@
 # leetcode-python
-This repository contains Python solution to LeetCode Problems.
+This code repository contains Python solution to LeetCode Problems.
 To improve understanding on the solution, the code includes:
 
 #### original leetcode url
